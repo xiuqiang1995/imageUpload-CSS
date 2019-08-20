@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        .imagePicker {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            overflow: hidden;
+            /*内阴影 使图片看起来嵌在圆圈里*/
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .imagePicker img {
+            /*保证图片不撑出去*/
+            max-width: 100%;
+            max-height: 100%;
+            /*vertical-align: top;*/
+        }
+        
+        .imagePicker input[type=file] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            /*透明*/
+            opacity: 0;
+            /*盖住mask*/
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .imagePicker .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        
+        .imagePicker:hover .mask {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imagePicker">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGSHiA5YP7zmisgsCERSe9zLTEHtOfbKMdfiVOtqbjJqs7ptqI" alt="">
+        <div class="mask">编辑</div>
+        <input type="file">
+    </div>
+</body>
+
+</html>
